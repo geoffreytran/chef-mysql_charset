@@ -13,6 +13,7 @@ default-character-set=<%= @node[:mysql_charset][:encoding] %>
 #
 # default-character-set = <%= @node[:mysql_charset][:encoding] %>  
 
+
 collation-server = <%= @node[:mysql_charset][:collation] %>
-init-connect='SET NAMES <%= @node[:mysql_charset][:encoding] %> '
+init_connect='SET collation_database = <%= @node[:mysql_charset][:collation] %>; SET collation_connection = <%= @node[:mysql_charset][:collation] %>; SET NAMES <%= @node[:mysql_charset][:encoding] %>;'
 character-set-server = <%= @node[:mysql_charset][:encoding] %>  
